@@ -56,8 +56,8 @@ var todoList = new Vue({
       let i = this.lista.indexOf(todo);
       this.lista.splice(i, 1);
     },
-    editText: function($event){
-      $event.target.blur();
+    editText: function(e){
+      e.target.blur();
     }
   } //fine methods
 })
