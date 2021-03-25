@@ -2,6 +2,8 @@ var todoList = new Vue({
   el: '#root',
   data:{
     inserimento: '',
+    edit :'',
+    prova:'false',
     lista:[
       {
         title: 'Studiare',
@@ -25,14 +27,14 @@ var todoList = new Vue({
       }
     ]
   }, //fine data
-  computed:{
-    listareverse: function (){
-      let statusDone =this.lista.filter((todo) => todo.status == 'done');
-      let statusTodo = this.lista.filter((todo) => todo.status == 'todo');
-
-      return [...statusTodo, ...statusDone];
-    }
-  },
+  // computed:{
+  //   listareverse: function (){
+  //     let statusDone =this.lista.filter((todo) => todo.status == 'done');
+  //     let statusTodo = this.lista.filter((todo) => todo.status == 'todo');
+  //
+  //     return [...statusTodo, ...statusDone];
+  //   }
+  // },
   methods: {
     inputText: function() {
       if (this.inserimento != '') {
@@ -49,8 +51,13 @@ var todoList = new Vue({
       // console.log(this.lista[i].status);
       this.lista[i].status = 'done';
     },
-    cancel: function(){
-      console.log(this.listareverse);
+    cancel: function(todo){
+      // console.log(this.listareverse);
+      let i = this.lista.indexOf(todo);
+      this.lista.splice(i, 1);
+    },
+    editText: function($event){
+      $event.target.blur();
     }
   } //fine methods
 })

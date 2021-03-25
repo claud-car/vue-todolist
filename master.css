@@ -60,6 +60,7 @@ ul{
 
 i{
   color: green;
+  margin-left: 10px;
 }
 
 .line{
@@ -70,3 +71,7 @@ i{
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f164";
   color: green;
 } */
+
+i:hover{
+  cursor: pointer;
+}

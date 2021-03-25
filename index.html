@@ -16,11 +16,15 @@
     <ul id="list">
     </ul>
     <div id="to-do">
-      <!-- lista -->
-      <li v-for = "(todo,i) in listareverse">
-        <span  class="title " :class="(todo.status == 'done') ? 'line' : ''">{{ todo.title }}</span>
-        <span  v-if = "todo.status != 'done' " class="done"><i @click="check(todo)" class="fas fa-check-circle"></i></span>
-        <span  v-if = "todo.status == 'done' " class="delete"><i @click="cancel(todo)" class="fas fa-trash"></i></span>
+      <!-- listareverse -->
+      <li v-for = "(todo,i) in lista">
+        <span
+        contenteditable="true"
+        @keydown.enter="editText($event)"
+        class="title " :class="(todo.status == 'done') ? 'line' : ''">{{ todo.title }}</span>
+        <span  v-if = "todo.status != 'done' " class="done"></i><i @click="cancel(todo)" class="fas fa-check-circle"></i></span>
+        <!-- <span  v-if = "todo.status != 'done' " class="done"><i @click="check(todo)" class="fas fa-check-circle"></i></span> -->
+        <!-- <span  v-if = "todo.status == 'done' " class="delete"><i @click="cancel(todo)" class="fas fa-trash"></i></span> -->
       </li>
     </div>
     <div class="bottom-box">
